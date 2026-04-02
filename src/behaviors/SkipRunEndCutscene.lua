@@ -10,7 +10,7 @@ table.insert(option_fns,
 
 table.insert(hook_fns, function()
     modutil.mod.Path.Wrap("EndEarlyAccessPresentation", function(baseFunc)
-        if not config.SkipRunEndCutscene or not lib.isEnabled(config, public.definition.modpack) then
+        if not config.SkipRunEndCutscene or not lib.isEnabled(public.store, public.definition.modpack) then
             return baseFunc()
         end
 

@@ -264,7 +264,7 @@ end
 
 table.insert(hook_fns, function()
     modutil.mod.Path.Wrap("OpenRunClearScreen", function(base)
-        if config.VictoryScreen and lib.isEnabled(config, public.definition.modpack) then
+        if config.VictoryScreen and lib.isEnabled(public.store, public.definition.modpack) then
             thread(function()
                 wait(0.5)
                 local metaEndY = CreateMetaUpgradeDisplay()
@@ -275,14 +275,14 @@ table.insert(hook_fns, function()
     end)
 
     modutil.mod.Path.Wrap("CloseRunClearScreen", function(base, screen)
-        if config.VictoryScreen and lib.isEnabled(config, public.definition.modpack) then
+        if config.VictoryScreen and lib.isEnabled(public.store, public.definition.modpack) then
             DestroyDisplays()
         end
         base(screen)
     end)
 
     modutil.mod.Path.Wrap("TraitTrayScreenRemoveItems", function(base, screen)
-        if not config.VictoryScreen or not lib.isEnabled(config, public.definition.modpack) then
+        if not config.VictoryScreen or not lib.isEnabled(public.store, public.definition.modpack) then
             return base(screen)
         end
 

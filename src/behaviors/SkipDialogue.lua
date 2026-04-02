@@ -10,7 +10,7 @@ table.insert(option_fns,
 
 table.insert(hook_fns, function()
     modutil.mod.Path.Wrap("PlayTextLines", function(base, source, textLines, args)
-        if not config.SkipDialogue or not lib.isEnabled(config, public.definition.modpack) then
+        if not config.SkipDialogue or not lib.isEnabled(public.store, public.definition.modpack) then
             return base(source, textLines, args)
         end
 

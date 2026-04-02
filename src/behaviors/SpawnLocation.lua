@@ -11,7 +11,7 @@ table.insert(option_fns,
 table.insert(hook_fns, function()
     modutil.mod.Path.Context.Wrap("KillHero", function(_, _, _)
         modutil.mod.Path.Wrap("LoadMap", function(base, argTable)
-            if not config.SpawnLocation or not lib.isEnabled(config, public.definition.modpack) then
+            if not config.SpawnLocation or not lib.isEnabled(public.store, public.definition.modpack) then
                 base(argTable)
                 return
             end

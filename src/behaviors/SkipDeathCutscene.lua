@@ -11,7 +11,7 @@ table.insert(option_fns,
 table.insert(hook_fns, function()
     modutil.mod.Path.Context.Wrap("DeathPresentation", function()
         modutil.mod.Path.Wrap("wait", function(base, duration, tag, persist)
-            if not config.SkipDeathCutscene or not lib.isEnabled(config, public.definition.modpack) then
+            if not config.SkipDeathCutscene or not lib.isEnabled(public.store, public.definition.modpack) then
                 return base(duration, tag, persist)
             end
             return
